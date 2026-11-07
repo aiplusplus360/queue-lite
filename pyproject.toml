@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "queue-lite"
+version = "1.0.0"
+description = "A durable job queue in one SQLite file: leases, retries with jitter, dead letters, dedupe."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "aiplusplus360" }]
+keywords = ["queue", "jobs", "sqlite", "task-queue", "background-jobs", "worker", "retry", "dead-letter"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Distributed Computing",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+queuelite = "queuelite.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/aiplusplus360/queue-lite"
+Source = "https://github.com/aiplusplus360/queue-lite"
+Issues = "https://github.com/aiplusplus360/queue-lite/issues"
+
+[tool.setuptools]
+packages = ["queuelite"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
